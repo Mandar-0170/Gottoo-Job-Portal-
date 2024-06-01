@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firstproject
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-static-website
+  template:
+    metadata:
+      labels:
+        app: my-static-website
+    spec:
+      containers:
+      - name: website-instance
+        image: kubeleo21/gottoimg:V1
+        ports:
+        - containerPort: 80
+
